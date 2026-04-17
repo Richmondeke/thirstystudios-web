@@ -5,25 +5,18 @@ import Link from "next/link";
 
 const studios = [
     {
-        id: "studio-a",
-        name: "Studio A",
-        description: "Our flagship control room featuring the legendary Neve 8068 console and an expansive collection of vintage outboard gear. Designed for elite sonic precision.",
+        id: "music-studio",
+        name: "Music Studio",
+        description: "Our flagship control room featuring a standard recording microphone, an amplifier, a soundcard, two speakers, a screen with great air conditioning. Limited to 5 Guests including Artist. Extra guests come at a cost.",
         image: "/images/studio-a.png",
-        gear: ["Neve 8068 Console", "Urei 1176LN", "Teletronix LA-2A", "Studer A827", "Pro Tools HDX"]
+        gear: ["Recording Microphone", "Amplifier", "Soundcard", "Dual Speakers", "Studio Screen", "AC System"]
     },
     {
-        id: "studio-b",
-        name: "Studio B",
-        description: "A versatile live-room focused environment centered around a stunning Steinway Grand and a custom 48-channel SSL console. The soul of Thirstystudios.",
-        image: "/images/studio-b.png",
-        gear: ["SSL 4000 G+ Console", "Steinway Model D", "Yamaha Recording Custom Drums", "Manley Massive Passive"]
-    },
-    {
-        id: "studio-c",
-        name: "Studio C",
-        description: "An intimate production and mixing suite optimized for modern workflows. Equipped with cutting-edge analog-digital hybrid systems and vintage synthesizers.",
-        image: "/images/studio-c.png",
-        gear: ["API 1608 Console", "Moog One", "Prophet-5", "Barefoot Footprint01 Monitors"]
+        id: "photo-studio",
+        name: "Photo Studio",
+        description: "A 28ft by 17ft professional photography environment featuring various selected backdrops and elite lighting systems.",
+        image: "/images/photo-studio.png",
+        gear: ["Selected Backdrops", "Professional Softboxes", "Tripods", "28ft x 17ft Space"]
     }
 ];
 
