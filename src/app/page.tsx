@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Header from "@/components/Header";
+import Link from "next/link";
 
 export default function Home() {
   const [entered, setEntered] = useState(false);
@@ -9,31 +11,32 @@ export default function Home() {
   if (entered) {
     return (
       <main className="min-h-screen bg-background flex flex-col items-center justify-center animate-fade-in">
-        <nav className="fixed top-0 w-full p-8 flex justify-between items-center z-50">
-          <h2 className="text-xl font-bold tracking-widest text-accent-gold">THIRSTYSTUDIOS</h2>
-          <div className="flex gap-8 text-sm uppercase tracking-widest opacity-70">
-            <a href="#" className="hover:text-accent transition-colors">Studios</a>
-            <a href="#" className="hover:text-accent transition-colors">Engineers</a>
-            <a href="#" className="hover:text-accent transition-colors">Testimonials</a>
-            <a href="#" className="hover:text-accent transition-colors">Contact</a>
-          </div>
-        </nav>
+        <Header />
 
         <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-background z-10" />
-            <div className="w-full h-full bg-studio-gray flex items-center justify-center text-4xl opacity-20">
-              [CINEMATIC STUDIO HERO IMAGE]
-            </div>
+            <Image
+              src="/images/studio-a.png"
+              alt="Studio A"
+              fill
+              className="object-cover opacity-60 scale-110 blur-sm"
+            />
           </div>
 
           <div className="relative z-20 text-center animate-slide-up">
-            <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-4 text-gradient">
+            <h1 className="text-7xl md:text-9xl font-black tracking-tighter mb-4 text-gradient">
               THE ART OF SOUND
             </h1>
-            <p className="text-lg md:text-xl uppercase tracking-[0.5em] opacity-60">
-              TORONTO'S PREMIER CREATIVE HUB
+            <p className="text-sm md:text-lg uppercase tracking-[1em] opacity-40 mb-12">
+              TORONTO — CANADA
             </p>
+            <Link
+              href="/studios"
+              className="px-8 py-3 bg-white text-black text-xs tracking-[0.4em] uppercase hover:bg-accent-gold hover:text-white transition-all"
+            >
+              Explore Studios
+            </Link>
           </div>
 
           <div className="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-40">
@@ -45,9 +48,9 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-black flex flex-col items-center justify-center">
+    <main className="min-h-screen bg-black flex flex-col items-center justify-center p-4">
       <div className="text-center animate-fade-in">
-        <h1 className="text-5xl md:text-7xl font-bold tracking-[0.2em] mb-12 text-foreground/90">
+        <h1 className="text-4xl md:text-7xl font-bold tracking-[0.3em] mb-12 text-foreground/90">
           THIRSTYSTUDIOS
         </h1>
         <button
