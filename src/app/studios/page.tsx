@@ -2,31 +2,15 @@
 
 import Image from "next/image";
 import Link from "next/link";
-
-const studios = [
-    {
-        id: "music-studio",
-        name: "Music Studio",
-        description: "Our flagship control room featuring a standard recording microphone, an amplifier, a soundcard, two speakers, a screen with great air conditioning. Limited to 5 Guests including Artist. Extra guests come at a cost.",
-        image: "/images/studio-a.png",
-        gear: ["Recording Microphone", "Amplifier", "Soundcard", "Dual Speakers", "Studio Screen", "AC System"]
-    },
-    {
-        id: "photo-studio",
-        name: "Photo Studio",
-        description: "A 28ft by 17ft professional photography environment featuring various selected backdrops and elite lighting systems.",
-        image: "/images/photo-studio.png",
-        gear: ["Selected Backdrops", "Professional Softboxes", "Tripods", "28ft x 17ft Space"]
-    }
-];
+import { studios } from "@/lib/studio-data";
 
 export default function StudiosPage() {
     return (
         <main className="min-h-screen bg-background text-foreground pt-32 px-8">
             <div className="max-w-7xl mx-auto">
                 <header className="mb-20 animate-fade-in">
-                    <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-gradient">OUR STUDIOS</h1>
-                    <p className="text-xl opacity-60 max-w-2xl tracking-wide uppercase italic">
+                    <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-accent-yellow uppercase">OUR STUDIOS</h1>
+                    <p className="text-xl opacity-60 max-w-2xl tracking-wide uppercase">
                         Elite recorded audio, born from the perfect harmony of space, gear, and inspiration.
                     </p>
                 </header>
@@ -57,13 +41,20 @@ export default function StudiosPage() {
                                         </span>
                                     ))}
                                 </div>
-                                <Link
-                                    href={`/studios/${studio.id}`}
-                                    className="mt-4 text-accent-gold uppercase tracking-[0.3em] text-sm hover:text-white transition-colors flex items-center gap-2 group"
-                                >
-                                    Explore Details
-                                    <span className="transform translate-x-0 group-hover:translate-x-2 transition-transform">→</span>
-                                </Link>
+                                <div className="flex gap-4 mt-4">
+                                    <Link
+                                        href={`/booking?studio=${studio.id}`}
+                                        className="px-6 py-2 bg-white text-black text-[10px] tracking-[0.3em] font-bold uppercase hover:bg-accent-yellow transition-colors"
+                                    >
+                                        Book Now
+                                    </Link>
+                                    <Link
+                                        href={`/studios/${studio.id}`}
+                                        className="px-6 py-2 border border-white/10 text-[10px] tracking-[0.3em] font-bold uppercase hover:bg-white/5 transition-colors"
+                                    >
+                                        Details
+                                    </Link>
+                                </div>
                             </div>
                         </section>
                     ))}
@@ -71,7 +62,7 @@ export default function StudiosPage() {
             </div>
 
             <footer className="mt-32 py-16 border-t border-white/5 text-center">
-                <p className="text-xs uppercase tracking-[0.5em] opacity-30">© 2024 THIRSTYSTUDIOS TORONTO</p>
+                <p className="text-xs uppercase tracking-[0.5em] opacity-30">© 2024 THIRSTYSTUDIOS LAGOS</p>
             </footer>
         </main>
     );
