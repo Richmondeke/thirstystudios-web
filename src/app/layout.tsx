@@ -13,8 +13,27 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Thirsty Studios | Premium Recording & Production in Lagos",
-  description: "Experience world-class recording, mixing, and production at Thirsty Studios. Book your session at our Lagos studio and elevate your sound.",
+  title: "Thirsty Studios | The studio for $uperstars",
+  description: "The studio for $uperstars",
+  openGraph: {
+    title: "Thirsty Studios | The studio for $uperstars",
+    description: "The studio for $uperstars",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Thirsty Studios",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Thirsty Studios | The studio for $uperstars",
+    description: "The studio for $uperstars",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
