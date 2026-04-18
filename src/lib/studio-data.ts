@@ -21,8 +21,8 @@ export const studios: Studio[] = [
         name: "Music Studio",
         description: "The best room for recording and mixing. Top-tier gear like the UAD Apollo and Yamaha HS8 monitors to help you make professional music in total privacy.",
         longDescription: "Built for local and international artists who need high-quality sound. With professional acoustic treatment and elite gear, it's the ideal space for recording vocals, mixing tracks, or producing your next hit.",
-        image: "/images/studio-a.png",
-        gallery: ["/images/studio-a.png", "/images/gear-1.png", "/images/gear-2.png"],
+        image: "/images/music-studio-new.jpg",
+        gallery: ["/images/music-studio-new.jpg", "/images/gear-1.png", "/images/gear-2.png"],
         gear: [
             "UAD Apollo Twin X",
             "SE Electronics Z5609a II",

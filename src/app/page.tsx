@@ -5,8 +5,36 @@ import Image from "next/image";
 import Header from "@/components/Header";
 import Link from "next/link";
 import { studios } from "@/lib/studio-data";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
+import { Biohazard } from "lucide-react";
 import { submitEnquiry } from "./actions/enquiries";
+
+function Typewriter({ text }: { text: string }) {
+  const words = text.split(" ");
+  return (
+    <motion.div className="overflow-hidden flex flex-wrap justify-center">
+      {words.map((word, i) => (
+        <span key={i} className="inline-block whitespace-nowrap mr-[0.2em] last:mr-0">
+          {word.split("").map((char, j) => (
+            <motion.span
+              key={j}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                delay: 0.5 + (i * 0.1) + (j * 0.05),
+                duration: 0.2,
+                ease: "easeOut"
+              }}
+              className="inline-block"
+            >
+              {char}
+            </motion.span>
+          ))}
+        </span>
+      ))}
+    </motion.div>
+  );
+}
 
 export default function Home() {
   const [entered, setEntered] = useState(false);
@@ -38,27 +66,22 @@ export default function Home() {
             />
           </motion.div>
 
-          <div className="relative z-20 text-center px-4">
-            <motion.h1
-              initial={{ y: 50, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.5, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="text-7xl md:text-9xl font-black tracking-tighter mb-4 text-accent-yellow uppercase"
-            >
-              THE STUDIO FOR $UPERSTARS
-            </motion.h1>
+          <div className="relative z-20 text-center px-6 md:px-4 w-full">
+            <h1 className="text-5xl md:text-9xl font-black tracking-tighter mb-4 text-accent-yellow uppercase">
+              <Typewriter text="THE HUB FOR $UPERSTARS" />
+            </h1>
             <motion.p
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 0.8, duration: 1 }}
-              className="text-sm md:text-lg uppercase tracking-[0.2em] opacity-60 mb-12 max-w-3xl mx-auto"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.6 }}
+              transition={{ delay: 2.5, duration: 1 }}
+              className="text-xs md:text-lg uppercase tracking-[0.2em] mb-12 max-w-3xl mx-auto px-6 md:px-0"
             >
-              Welcome to Thirstystudios. The primary home for superstars to record music and shoot video. Explore our spaces below.
+              Welcome to Thirstystudios. The primary hub for superstars to record music and shoot video. Explore our spaces below.
             </motion.p>
             <motion.div
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: 1, duration: 1 }}
+              transition={{ delay: 3, duration: 1 }}
             >
               <a
                 href="#studios"
@@ -84,7 +107,7 @@ export default function Home() {
         </motion.section>
 
         {/* Studios Section */}
-        <section id="studios" className="py-32 px-8 max-w-7xl mx-auto">
+        <section id="studios" className="py-20 md:py-32 px-6 md:px-8 max-w-7xl mx-auto">
           <motion.header
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -92,8 +115,8 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="mb-20"
           >
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-accent-yellow uppercase">OUR STUDIOS</h1>
-            <p className="text-xl opacity-60 max-w-2xl tracking-wide uppercase">
+            <h1 className="text-4xl md:text-7xl font-bold tracking-tighter mb-4 text-accent-yellow uppercase">OUR STUDIOS</h1>
+            <p className="text-lg md:text-xl opacity-60 max-w-2xl tracking-wide uppercase">
               A world-class environment designed for artists. Top-tier gear and perfect acoustics to help you create your best work.
             </p>
           </motion.header>
@@ -106,7 +129,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 1, delay: index * 0.1 }}
-                className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center`}
+                className={`flex flex-col ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-8 md:gap-12 items-center`}
               >
                 <div className="flex-1 w-full aspect-[16/10] relative rounded-lg overflow-hidden glass-panel group">
                   <Image
@@ -151,14 +174,14 @@ export default function Home() {
         {/* Contact Section */}
         <motion.section
           id="contact"
-          className="pb-32 pt-16 px-8 max-w-4xl mx-auto text-center"
+          className="pb-20 md:pb-32 pt-12 md:pt-16 px-6 md:px-8 max-w-4xl mx-auto text-center"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8 text-accent-yellow uppercase">GET IN TOUCH</h1>
-          <p className="text-xl opacity-60 mb-12 uppercase tracking-wide">
+          <h1 className="text-4xl md:text-7xl font-bold tracking-tighter mb-8 text-accent-yellow uppercase">GET IN TOUCH</h1>
+          <p className="text-lg md:text-xl opacity-60 mb-12 uppercase tracking-wide">
             Whether you're looking to book a session, tour the studios, or just have a question, we're here to help.
           </p>
 
@@ -187,14 +210,17 @@ export default function Home() {
             transition={{ duration: 1 }}
             className="text-center"
           >
-            <motion.h1
-              initial={{ letterSpacing: "0.1em", opacity: 0 }}
-              animate={{ letterSpacing: "0.3em", opacity: 1 }}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               transition={{ duration: 2, ease: "easeOut" }}
-              className="text-4xl md:text-7xl font-bold mb-12 text-foreground/90 uppercase"
+              className="flex items-center justify-center gap-4 mb-12"
             >
-              THIRSTYSTUDIOS
-            </motion.h1>
+              <Biohazard className="w-10 h-10 md:w-20 md:h-20 text-accent-yellow" />
+              <h1 className="text-2xl md:text-7xl font-bold text-foreground/90 uppercase tracking-[0.2em] md:tracking-[0.3em]">
+                THIRSTYSTUDIOS
+              </h1>
+            </motion.div>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}

@@ -13,11 +13,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Thirsty Studios | The studio for $uperstars",
-  description: "The studio for $uperstars",
+  title: "Thirsty Studios | The Hub for $uperstars",
+  description: "The Hub for $uperstars",
   openGraph: {
-    title: "Thirsty Studios | The studio for $uperstars",
-    description: "The studio for $uperstars",
+    title: "Thirsty Studios | The Hub for $uperstars",
+    description: "The Hub for $uperstars",
     images: [
       {
         url: "/og-image.png",
@@ -30,8 +30,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Thirsty Studios | The studio for $uperstars",
-    description: "The studio for $uperstars",
+    title: "Thirsty Studios | The Hub for $uperstars",
+    description: "The Hub for $uperstars",
     images: ["/og-image.png"],
   },
 };
