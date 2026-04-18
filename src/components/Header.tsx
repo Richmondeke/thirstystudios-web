@@ -43,12 +43,12 @@ export default function Header() {
 
     return (
         <>
-            <nav className={`fixed top-0 w-full z-[60] transition-all duration-500 flex justify-center ${scrolled ? 'p-4' : 'p-6 md:p-8'}`}>
+            <nav className={`fixed top-0 w-full z-[60] transition-all duration-500 flex ${scrolled ? 'justify-center p-4' : 'justify-between p-6 md:p-8 px-8 md:px-16'}`}>
                 <div className={`
-                    w-full flex justify-between items-center transition-all duration-500
+                    flex justify-between items-center transition-all duration-500
                     ${scrolled
-                        ? 'bg-black/80 backdrop-blur-md rounded-full py-3 px-8 md:px-12 border border-white/10 max-w-5xl shadow-2xl'
-                        : 'px-8 md:px-16 mix-blend-difference'
+                        ? 'w-full bg-black/80 backdrop-blur-md rounded-full py-3 px-8 md:px-12 border border-white/10 max-w-5xl shadow-2xl'
+                        : 'w-full mix-blend-difference'
                     }
                 `}>
                     <Link
