@@ -18,7 +18,8 @@ export class KorapayProvider {
     async initialize(request: PaymentInitializationRequest): Promise<PaymentInitializationResponse> {
         try {
             const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
-            const redirectUrl = `${baseUrl}/booking/success?reference=${request.reference}&bookingId=${request.metadata.bookingId}`;
+            const bookingId = request.metadata?.bookingId || 'unknown';
+            const redirectUrl = `${baseUrl}/booking/success?reference=${request.reference}&bookingId=${bookingId}`;
 
             const payload = {
                 amount: request.amount,
